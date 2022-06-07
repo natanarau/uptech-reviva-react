@@ -2,9 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss'
 import { respMenu } from './functions'
 
-type Props = {}
-
-export default function Header({}: Props) {
+export default function Header() {
   const [menu, setMenu] = React.useState<boolean>(true)
   return (
     <>

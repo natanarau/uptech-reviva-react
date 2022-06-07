@@ -1,8 +1,6 @@
 import styles from './styles.module.scss'
 
-type Props = {}
-
-export default function Card({}: Props) {
+export default function Card() {
   return (
     <>
       <div className={styles.card}>

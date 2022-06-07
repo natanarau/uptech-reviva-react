@@ -1,8 +1,6 @@
 import styles from './styles.module.scss'
 
-type Props = {}
-
-export default function Footer({}: Props) {
+export default function Footer() {
   return (
     <>
       <footer className={styles.footer_container}>

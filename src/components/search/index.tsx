@@ -1,8 +1,6 @@
 import styles from './styles.module.scss'
 
-type Props = {}
-
-export default function Searh({}: Props) {
+export default function Searh() {
   return (
     <div className={styles.search}>
       <input className={styles.search__input} type="text" placeholder="Faça sua busca aqui se ja souber o que está procurando..."/>

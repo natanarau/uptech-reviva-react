@@ -1,8 +1,6 @@
 import styles from './styles.module.scss'
 
-type Props = {}
-
-export default function Blog({}: Props) {
+export default function Blog() {
   return (
     <>
       <h2 className={styles.category}>Na dúvida sobre combinar suas roupas e ficar incrível?<br/>Confira nossas dicas em nosso blog</h2>

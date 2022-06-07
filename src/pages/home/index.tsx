@@ -9,9 +9,7 @@ import Searh from '../../components/search'
 import Card from '../../components/card'
 import Blog from '../../components/blog'
 
-type Props = {}
-
-export default function Home({}: Props) {
+export default function Home() {
   const localProducts = localStorage.getItem('products') 
   const [base, setBase] = React.useState<ProductTypes[]>(localProducts && JSON.parse(localProducts))
   React.useEffect(() => {
