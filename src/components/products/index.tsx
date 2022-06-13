@@ -1,5 +1,6 @@
-import styles from './styles.module.scss'
-import Inventory from './inventory'
+import styles from './styles.module.scss';
+import { setUpdateCart } from './state'
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 interface Products  {
   nameProduct: string,
@@ -7,10 +8,16 @@ interface Products  {
   urlImg: string,
   altImg: string,
   valueProduct: string,
-  key: any
+  quantityProduct: number
 }
 
 export default function Products(props: Products) {
+  const setCart = useRecoilValue(setUpdateCart)
+  const updateCart = useSetRecoilState(setUpdateCart)
+  const newCart = {idProduct: props.idProduct, quantitySet: setCart, unitValueProduct: props.valueProduct}
+  const newInventory = {...props, quantityProduct: props.quantityProduct - setCart}
+  console.log(`Atualizando estoque do produto ${props.idProduct} para ${newInventory.quantityProduct}`)
+  console.log(`Produto adicionado ao carrinho: ${props.idProduct} quantidade: ${setCart}`)
   return (
     <>
       <div className={styles.detail_product}>
@@ -40,7 +47,7 @@ export default function Products(props: Products) {
         <div className={styles.description_product}>
             <h3 className={styles.name_product}><a href="detalhes.html">{props.nameProduct}</a></h3>
             <p className={styles.value_product}>R$ {props.valueProduct}</p>
-            <button className={styles.add} onClick={() => Inventory(props.idProduct) }>
+            <button className={styles.add} onClick={() => updateCart(e => e+1)}>
               <div className={styles.add__content}>
                 <div className={styles.add__cart}>
                   POR NO CARRINHO
