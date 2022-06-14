@@ -3,18 +3,19 @@ import Footer from '../../components/footer'
 import Header from '../../components/header'
 import Total from '../../components/cart/total'
 import styles from './styles.module.scss'
-import { dataCart } from './dataCart'
-
+import { updateStateCart } from './state'
+import { RecoilRoot, useRecoilValue } from 'recoil'
 
 export default function Cart() {
+  const allProductsCart = useRecoilValue(updateStateCart)
   return (
     <>
       <Header />
       <main className={styles.container}>
         <h2 className={styles.category}>Minha sacola</h2>
         <div className={styles.box_cart}>
-          {dataCart.map(items => 
-            <CartProduct key={items.id} nameProduct={items.nome} valueProduct={items.preco} cart={items.carrinho} idProduct={items.id} urlImg={items.imagens[0].url} altImg={items.imagens[0].descricao} />
+          {allProductsCart.map(items => 
+            <CartProduct key={items.id} nome={items.nome} preco={items.preco} carrinho={items.carrinho} id={items.id} urlImg={items.imagens[0].url} altImg={items.imagens[0].descricao} quantidade_disponivel={items.quantidade_disponivel} />
           )}
           <Total />
         </div>

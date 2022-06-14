@@ -19,7 +19,7 @@ export const dataCart:CartType[] = [
     nome: 'VESTIDO MIDI PLUS SIZE FEMININO ABERTO UMA MARIA LISO MARROM FILIPA BY RIACHUELO',
     preco: 259.9,
     quantidade_disponivel: 20,
-    carrinho: 0,
+    carrinho: 1,
     total: 0,
     imagens: [
       {
@@ -33,7 +33,7 @@ export const dataCart:CartType[] = [
     nome: 'Camiseta Manga Curta Free Fire Branco',
     preco: 79.9,
     quantidade_disponivel: 15,
-    carrinho: 0,
+    carrinho: 1,
     total: 0,
     imagens: [
       {
@@ -47,7 +47,7 @@ export const dataCart:CartType[] = [
     nome: 'Suéter Feminino Curto Tricot Liso Verde Pool Basics by Riachuelo',
     preco: 99.9,
     quantidade_disponivel: 13,
-    carrinho: 0,
+    carrinho: 1,
     total: 0,
     imagens: [
       {

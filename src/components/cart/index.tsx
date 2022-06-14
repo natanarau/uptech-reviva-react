@@ -1,17 +1,35 @@
-import React from 'react'
+import { useState } from 'react'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { updateQuantityProductCart } from './state'
 import styles from './styles.module.scss'
 
-export interface CartType {
-  key: number,
-  idProduct: number,
-  nameProduct: string,
-  valueProduct: number,
-  cart: number,
+export interface CartTypeAdd {
+  id: number;
+  nome: string;
+  preco: number;
+  quantidade_disponivel: number;
+  carrinho: number;
   urlImg: string,
-  altImg: string,
+  altImg: string
 }
 
-export default function CartProduct(props:CartType) {
+export default function CartProduct(props:CartTypeAdd) {
+
+  const updateQuantity = useSetRecoilState(updateQuantityProductCart)
+  const allProductCart = useRecoilValue(updateQuantityProductCart)
+  const [value, setValue] = useState<any>(1)
+  const subTotal = value * props.preco
+  const changeCart = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const newArray = allProductCart.map(item => {
+      if(String(item.id) === e.target.id){
+       return {...item, carrinho: Number(e.target.value)}
+      }
+     return item
+    })
+    setValue(e.target.value)
+    updateQuantity(newArray)
+  }
+
   return (
     <>
       <div className={styles.box_cart__product}>
@@ -19,7 +37,7 @@ export default function CartProduct(props:CartType) {
 
         <div>
           <h3>Produto</h3>
-          <span className={styles.box_cart__desc}>{props.nameProduct}</span>
+          <span className={styles.box_cart__desc}>{props.nome}</span>
         </div>
 
         <div className={styles.box_cart__size}>
@@ -48,17 +66,19 @@ export default function CartProduct(props:CartType) {
 
         <div className={styles.box_cart__value}>
           <h3 className={styles.box_cart__title}>Valor</h3>
-          <span className={styles.box_cart__desc}>R$ {props.valueProduct.toFixed(2).replace('.', ',')}</span>
+          <span className={styles.box_cart__desc}>R$ {props.preco.toFixed(2).replace('.', ',')}</span>
         </div>
 
         <div className={styles.box_cart__qt}>
           <h3 className={styles.box_cart__title}>Quantidade</h3>
-          <input className={styles.box_cart__input} type="number" name="qt" min="1" max="99"/>
+
+          <input className={styles.box_cart__input} id={`${props.id}`} onChange={changeCart} value={value} type="number" name={String(props.id)} min="1" max={props.quantidade_disponivel}/>
+
         </div>
 
         <div className={styles.box_cart__sub_total}>
           <h3 className={styles.box_cart__title}>Subtotal</h3>
-          <span className={styles.box_cart__desc}>R$ 259,90</span>
+          <span className={styles.box_cart__desc}>R$ {subTotal.toFixed(2).replace('.', ',')}</span>
         </div>
       </div>
     </>

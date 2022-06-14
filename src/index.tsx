@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <Home />
+      <Cart />
     </RecoilRoot>
   </React.StrictMode>
 );
