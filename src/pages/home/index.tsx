@@ -1,12 +1,12 @@
 import type { ProductTypes } from './data'
 import { stateProducts } from './state'
 import styles from './styles.module.scss'
-import Header from '../../components/header'
-import Products from '../../components/products'
-import Footer from '../../components/footer'
-import Searh from '../../components/search'
-import Card from '../../components/card'
-import Blog from '../../components/blog'
+import Header from 'components/header'
+import Products from 'components/products'
+import Footer from 'components/footer'
+import Searh from 'components/search'
+import Card from 'components/card'
+import Blog from 'components/blog'
 import { RecoilRoot, useRecoilValue } from 'recoil'
 
 export default function Home() {

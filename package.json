@@ -21,7 +21,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "name": "node-ts-path-mapping",
+    "scripts": {
+      "dev": "ts-node-dev -r tsconfig-paths/register src/server.ts"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +47,7 @@
   },
   "devDependencies": {
     "sass": "^1.52.2",
+    "tsconfig-paths": "^4.0.0",
     "typescript-plugin-css-modules": "^3.4.0"
   }
 }
