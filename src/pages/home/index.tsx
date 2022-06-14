@@ -8,14 +8,13 @@ import Searh from 'components/search'
 import Card from 'components/card'
 import Blog from 'components/blog'
 import { RecoilRoot, useRecoilValue } from 'recoil'
+import PageTemplate from 'templates/page'
 
 export default function Home() {
   const allProduct = useRecoilValue<ProductTypes[]>(stateProducts)
   return (
     <>
-      <Header />
-      <main className={styles.container}>
-        <Searh />    
+      <PageTemplate>
         <h2 className={styles.category}>Ultimos Lançamentos</h2>
         <div className={styles.group_products}>
           
@@ -40,8 +39,7 @@ export default function Home() {
 
         </div>
         <Blog />
-      </main>
-      <Footer />
+      </PageTemplate>
     </>
   )
 }

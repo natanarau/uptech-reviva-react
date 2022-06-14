@@ -4,14 +4,14 @@ import Header from 'components/header'
 import Total from 'components/cart/total'
 import styles from './styles.module.scss'
 import { updateStateCart } from './state'
-import { RecoilRoot, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
+import PageTemplate from 'templates/page'
 
 export default function Cart() {
   const allProductsCart = useRecoilValue(updateStateCart)
   return (
     <>
-      <Header />
-      <main className={styles.container}>
+      <PageTemplate>
         <h2 className={styles.category}>Minha sacola</h2>
         <div className={styles.box_cart}>
           {allProductsCart.map(items => 
@@ -19,8 +19,8 @@ export default function Cart() {
           )}
           <Total />
         </div>
-      </main>
-      <Footer />
+      </PageTemplate>
+        
     </>
   )
 }
