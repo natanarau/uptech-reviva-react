@@ -1,17 +1,16 @@
-import React from 'react';
+import {App} from 'App';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import Cart from 'pages/cart';
-import Home from 'pages/home';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <BrowserRouter>
     <RecoilRoot>
-      <Cart />
+      <App />
     </RecoilRoot>
-  </React.StrictMode>
+  </BrowserRouter>
 );
 

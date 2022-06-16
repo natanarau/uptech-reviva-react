@@ -10,7 +10,7 @@ import Blog from 'components/blog'
 import { RecoilRoot, useRecoilValue } from 'recoil'
 import PageTemplate from 'templates/page'
 
-export default function Home() {
+export const Home = () => {
   const allProduct = useRecoilValue<ProductTypes[]>(stateProducts)
   return (
     <>

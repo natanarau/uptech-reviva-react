@@ -7,7 +7,7 @@ import { updateStateCart } from './state'
 import { useRecoilValue } from 'recoil'
 import PageTemplate from 'templates/page'
 
-export default function Cart() {
+export const Cart = () => {
   const allProductsCart = useRecoilValue(updateStateCart)
   return (
     <>
