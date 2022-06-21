@@ -1,5 +1,8 @@
 interface ProductImage {
   url: string;
+  url2: string;
+  url3: string;
+  url4: string;
   descricao: string;
 }
 
@@ -33,6 +36,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14595150003/portrait/47b6bc1baa2696ab9e414de591d2ccaf96f2d25b.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14595150004/portrait/ad15e338997af4e6e75793bd4f0694f868c3febb.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14595150004/portrait/a6ed1b2ee6ab3f0ae1ee6bdfb0b1e6e118dc12ee.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14595150004/portrait/43f27986356c977ca9c81e11c3d54fc9615b7fbf.jpg?imwidth=700',
           descricao: 'Vestido midi plus',
         },
       ],
@@ -52,6 +58,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14594536001/portrait/f0140498a034437cada79415e8a255ebe52b2f18.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14594536001/portrait/283e4e6fae6bc391f2d285ba9364ddfe1c5c33dd.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14594536001/portrait/f0140498a034437cada79415e8a255ebe52b2f18.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14594536001/portrait/a20487df3d367f53fc06d62d768ca7e95b33deb5.jpg?imwidth=700',
           descricao: 'Camiseta manga curta free fire branco',
         },
       ],
@@ -71,6 +80,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14380226005/portrait/14ed05dd6b3dd0307140279eb7f538725d368e9a.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14380226002/portrait/c98511be9d9c6970c1c1b861b642e6539508b7f3.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14380226002/portrait/986f8949597f9725212245cbb6c171fa456fcefe.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14380226002/portrait/0549e8766c5a8469ff0ee6a942b505e53e76ae7f.jpg?imwidth=700',
           descricao: 'Suéter Feminino Curto Tricot Liso Verde',
         },
       ],
@@ -90,6 +102,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14599970002/portrait/d4eabaf2cb2c65ed21bdeccf0055d775dc4367b6.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14599970002/portrait/7b1e58e74bd2010f52a3d9e8c6223e42318ffcac.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14599970002/portrait/711c433097bca5c4ee74d190f29350d50faf82d7.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14599970002/portrait/d2088dc4ce828e0bf9d05108197a9819bd7ac58e.jpg?imwidth=700',
           descricao: 'Blusa Feminina Manga Longa Texturizada Branco AK by',
         },
       ],
@@ -109,6 +124,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14303930004/portrait/756df1ab14a4829609dd0be9d692a5c2594dddef.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14303930004/portrait/0befaa6db58cdfa92d652adcd6636621e67cf1b5.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14303930004/portrait/cf61f949ebcc1231986ea29dbf7f6ae1bfbaa190.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14303930004/portrait/d8ba26aa9f6fb16f18e8881c5a67b169111c131e.jpg?imwidth=700',
           descricao: 'Bermuda Água Masculina Tactel Verão Rosa Básica e casual',
         },
       ],
@@ -128,6 +146,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14106116004/portrait/180bbff6bbf9b6b492095e3a664c748f81d1e095.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14106116001/portrait/80a90e0820a76138ffa20963fa292a756e8884ad.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14106116001/portrait/452b67b4ea744072a4ef85db1c2e0b97fa242b9d.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14106116001/portrait/5c2262c62720c2a0a4b19b02885981992a05a157.jpg?imwidth=700',
           descricao: 'Maiô Tradicional Verão Azul',
         },
       ],
@@ -147,6 +168,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14463342005/portrait/7e9ce6e2b121b7a1b324855ca7eb2aaaaf22d561.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14463342005/portrait/4f4fc2b5e8a8de4bad9a04340bb908c341bced29.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14463342005/portrait/89bab0d7ff23943a9d762343170805e190c1a67d.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14463342005/portrait/0dfbd5630159cef5bfba11fbf18ccbbf884202c5.jpg?imwidth=700',
           descricao: 'Regata Masculina Malha Verão Branco',
         },
       ],
@@ -166,6 +190,9 @@ export const data:ProductTypes[] = [
       imagens: [
         {
           url: 'https://static.riachuelo.com.br/RCHLO/14497638005/portrait/30ca8063d786f0de49bc66df1e81e167409eaa92.jpg?imwidth=700',
+          url2: 'https://static.riachuelo.com.br/RCHLO/14497638005/portrait/b004ed6caa5a12d54236149311e3836b038ae7ba.jpg?imwidth=700',
+          url3: 'https://static.riachuelo.com.br/RCHLO/14497638005/portrait/8e8307355a2575c8f931443171e739de72db26bf.jpg?imwidth=700',
+          url4: 'https://static.riachuelo.com.br/RCHLO/14497638005/portrait/4bcd5549f462236ade50327941762dd5f593fe14.jpg?imwidth=700',
           descricao: 'Camiseta Masculina Manga Curta Summer Addict Rosa Salmão',
         },
       ],
