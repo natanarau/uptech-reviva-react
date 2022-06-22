@@ -1,9 +1,10 @@
-import styles from './styles.module.scss';
+import * as S from './styles'
 import { setUpdateCart } from './state'
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Link } from 'react-router-dom';
-import { SizeProduct } from 'components/sizes';
-import { ButtonSetCart } from 'components/button';
+import { SizeProduct } from 'components/Sizes';
+import { ButtonSetCart } from 'components/Button';
+import { TextH3, TextP } from 'components/Text';
 
 interface Products  {
   nameProduct: string,
@@ -24,17 +25,19 @@ export default function Products(props: Products) {
 
   return (
     <>
-      <div className={styles.detail_product}>
-        <div className={styles.product}>
-          <Link to={`/detail/${props.idProduct}`}><img className={styles.product__img} src={props.urlImg} alt={props.altImg} /></Link>
+      <S.BoxProducts>
+        <S.BoxImg>
+          <Link to={`/detail/${props.idProduct}`}><S.ImgProduct src={props.urlImg} alt={props.altImg} /></Link>
           <SizeProduct />
-        </div>
-        <div className={styles.description_product}>
-          <h3 className={styles.name_product}><Link to={`/detail/${props.idProduct}`} >{props.nameProduct}</Link></h3>
-          <p className={styles.value_product}>R$ {props.valueProduct}</p>
+        </S.BoxImg>
+        <S.Box>
+          <Link to={`/detail/${props.idProduct}`}>
+            <TextH3 size='1.8rem' margin='0.5rem 0' ht='10rem' textTransform='uppercase' transition='0.3s'>{props.nameProduct}</TextH3>
+          </Link>
+          <TextP color='#D0403A' size='1.8rem' margin='0.5rem 0' fontWeight='600'>{`R$ ${props.valueProduct}`}</TextP>
           <ButtonSetCart onClick={() => updateCart(e => e+1)} width={`100%`} />
-        </div>
-      </div>
+        </S.Box>
+      </S.BoxProducts>
     </>
   )
 }

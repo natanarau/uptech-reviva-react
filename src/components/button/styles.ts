@@ -18,6 +18,9 @@ export const Button = styled.button<Attributes> `
     background-color: #70ff99;
     border: solid 0.1rem #525252
   }
+  &:hover {
+    opacity: 70%;
+  }
 `
 export const ImgFront = styled.img `
   position: absolute;

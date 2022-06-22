@@ -1,10 +1,10 @@
-import Card from 'components/card'
-import { ButtonSetCart } from 'components/button'
-import { SizeProduct } from 'components/sizes'
+import Card from 'components/Card'
+import { ButtonSetCart } from 'components/Button'
+import { SizeProduct } from 'components/Sizes'
 import { stateProducts } from 'pages/home/state'
-import Products from 'components/products'
+import Products from 'components/Products'
 import { useRecoilValue } from 'recoil'
-import { BoxDetails, BoxImgLg, BoxImgMin, ImgMin, BoxProduct, BoxText, DataProducts, ImgLg, Title, Description, GroupButton } from './styles'
+import * as S from './styles'
 
 interface ProductImage {
   url: string;
@@ -40,37 +40,37 @@ export default function Detail(props: DataProduct) {
   const allProduct = useRecoilValue<ProductTypes[]>(stateProducts)
   return (
     <>
-      <BoxDetails>
-        <BoxImgLg>
-          <ImgLg src={props.urlImg} alt={props.altImg}/>
-        </BoxImgLg>
-        <DataProducts>
-          <BoxText>
-          <Title>{props.nameProduct}</Title>
-          <Description>{props.descriptionProduct}</Description>
-          </BoxText>
-          <BoxImgMin>
-            <ImgMin src={props.urlImg} alt={props.altImg} />
-            <ImgMin src={props.urlImg2} alt={props.altImg} />
-            <ImgMin src={props.urlImg3} alt={props.altImg} />
-            <ImgMin src={props.urlImg4} alt={props.altImg} />
-          </BoxImgMin>
-          <GroupButton>
+      <S.BoxDetails>
+        <S.BoxImgLg>
+          <S.ImgLg src={props.urlImg} alt={props.altImg}/>
+        </S.BoxImgLg>
+        <S.DataProducts>
+          <S.BoxText>
+          <S.Title>{props.nameProduct}</S.Title>
+          <S.Description>{props.descriptionProduct}</S.Description>
+          </S.BoxText>
+          <S.BoxImgMin>
+            <S.ImgMin src={props.urlImg} alt={props.altImg} />
+            <S.ImgMin src={props.urlImg2} alt={props.altImg} />
+            <S.ImgMin src={props.urlImg3} alt={props.altImg} />
+            <S.ImgMin src={props.urlImg4} alt={props.altImg} />
+          </S.BoxImgMin>
+          <S.GroupButton>
             <SizeProduct />
             <ButtonSetCart width={`30rem`} />
-          </GroupButton>
-        </DataProducts>
-      </BoxDetails>
+          </S.GroupButton>
+        </S.DataProducts>
+      </S.BoxDetails>
 
       <Card />
       
-      <Title>Quem comprou esse produto, também levou esses para casa!</Title>
-      <BoxProduct>
+      <S.Title>Quem comprou esse produto, também levou esses para casa!</S.Title>
+      <S.BoxProduct>
         {allProduct && allProduct.map((product) => 
           product.categoria == 2 && 
           <Products key={product.id} idProduct={product.id} nameProduct={product.nome} urlImg={product.imagens[0].url} altImg={product.imagens[0].descricao} valueProduct={product.preco.toFixed(2).replace('.', ',')} quantityProduct={product.quantidade_disponivel} />
         )}
-      </BoxProduct>
+      </S.BoxProduct>
     </>
   )
 }

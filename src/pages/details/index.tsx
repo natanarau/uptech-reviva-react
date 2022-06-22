@@ -1,9 +1,8 @@
 import PageTemplate from 'templates/page'
 import { useParams } from 'react-router-dom'
-import Detail from 'components/detail'
+import Detail from 'components/Detail'
 import { stateProducts } from 'pages/home/state'
 import { useRecoilValue } from 'recoil'
-import { ReactElement, ReactNode } from 'react'
 
 interface ProductImage {
   url: string;
@@ -33,7 +32,17 @@ export const DetailsProducts = () => {
   return (
     <PageTemplate>
       {product &&
-          <Detail id={id} nameProduct={product.nome} urlImg={product.imagens[0].url} urlImg2={product.imagens[0].url2} urlImg3={product.imagens[0].url3} urlImg4={product.imagens[0].url4} altImg={product.imagens[0].descricao} valueProduct={product.preco} descriptionProduct={product.descricao} />
+          <Detail 
+            id={id} 
+            nameProduct={product.nome} 
+            urlImg={product.imagens[0].url} 
+            urlImg2={product.imagens[0].url2} 
+            urlImg3={product.imagens[0].url3} 
+            urlImg4={product.imagens[0].url4} 
+            altImg={product.imagens[0].descricao} 
+            valueProduct={product.preco} 
+            descriptionProduct={product.descricao} 
+          />
       }
     </PageTemplate>
   )
