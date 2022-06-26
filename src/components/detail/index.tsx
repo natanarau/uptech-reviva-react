@@ -34,9 +34,9 @@ interface DataProduct {
   valueProduct: number
   descriptionProduct: string
 }
-
 export default function Detail(props: DataProduct) {
   const { dataProductValue } = useContextDataProduct()
+  const categoryProduct1 = dataProductValue.filter(item => item.categoria === 1)
   return (
     <>
       <S.BoxDetails>
@@ -65,10 +65,7 @@ export default function Detail(props: DataProduct) {
       
       <S.Title>Quem comprou esse produto, também levou esses para casa!</S.Title>
       <S.BoxProduct>
-        {dataProductValue && dataProductValue.map((product) => 
-          product.categoria == 2 && 
-          <Products key={product.id} idProduct={product.id} nameProduct={product.nome} urlImg={product.imagens[0].url} altImg={product.imagens[0].descricao} valueProduct={product.preco.toFixed(2).replace('.', ',')} quantityProduct={product.quantidade_disponivel} />
-        )}
+        <Products category={2} />  
       </S.BoxProduct>
     </>
   )
