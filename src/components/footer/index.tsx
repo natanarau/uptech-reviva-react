@@ -1,52 +1,61 @@
-import styles from './styles.module.scss'
+import * as S from './styles'
+import Logo from 'components/Logo'
+import { TextH2 } from 'components/Text'
+import { Link } from 'react-router-dom'
+import Newsletter from 'components/Footer/Newsletter'
 
 export default function Footer() {
   return (
     <>
-      <footer className={styles.footer_container}>
-        <div className={styles.container_title_footer}>
-          <h1 className={styles.title}>Reviva Fashion</h1>
-          <span className={styles.container_title_footer__span}>by RCHLO</span>
-        </div>
-        <div className={styles.footer_contact}>
-          <nav>
-            <h2>Menu</h2>
-            <ul>
-              <li className={styles.footer_contact__li}><a href="">Página Inicial</a></li>
-              <li className={styles.footer_contact__li}><a href="">Moda Masculina</a></li>
-              <li className={styles.footer_contact__li}><a href="">Moda Feminina</a></li>
-              <li className={styles.footer_contact__li}><a href="">Moda Infantil</a></li>
-              <li className={styles.footer_contact__li}><a href="">Manual de Moda</a></li>
-            </ul>
-          </nav>
-          <div>
-            <h2>Siga-nos nas redes sociais</h2>
-            <div className={styles.redes}>
-              <a href=""><img className={styles.redes__img} src={process.env.PUBLIC_URL + 'assets/img/icons/facebook.svg'} alt="Facebook"/></a>
-              <a href=""><img className={styles.redes__img} src={process.env.PUBLIC_URL + 'assets/img/icons/twitter.svg'} alt="Twitter"/></a>
-              <a href=""><img className={styles.redes__img} src={process.env.PUBLIC_URL + 'assets/img/icons/instagram.svg'} alt="Instagram"/></a>
-              <a href=""><img className={styles.redes__img} src={process.env.PUBLIC_URL + 'assets/img/icons/youtube.svg'} alt="Youtube"/></a>
-            </div>
-          </div>
-          <div className={styles.contact}>
-            <h2>Entre em contato</h2>
-            <ul>
-              <li className={styles.footer_contact__li}><a href="mailto:reviva@rchlo.com.br">reviva@rchlo.com.br</a></li>
-              <li className={styles.footer_contact__li}>
-                <a href="https://web.whatsapp.com/send?phone=551121233321">WhasApp <img className={styles.contact__img} src={process.env.PUBLIC_URL + 'assets/img/icons/whatsapp.svg'} alt="WhatsApp da loja"/></a>
-              </li>
-              <li className={styles.footer_contact__li}>
-                <a href="tel:+551121233321">11 2123-3321 <img className={styles.contact__img} src={process.env.PUBLIC_URL + 'assets/img/icons/tel.svg'} alt="Numero da Loja"/></a>
-              </li>
-            </ul>
-          </div>
-          <div className={styles.newsletter}>
-            <h2>Assine nossa newsletter</h2>
-            <input className={styles.newsletter__input} type="text" name="newsletter"/>
-            <button className={styles.newsletter__button}>ASSINE JÁ</button>
-          </div>
-        </div>
-      </footer>
+      <S.Footer>
+        <Logo color='#D0403A' size='1rem' justifySelf='start' margin='5rem 3rem'/>
+        <S.BoxFooter>
+          <S.Box>
+            <TextH2 size='2rem'>Menu</TextH2>
+            <S.UlFooter>
+              <S.LiFooter><Link to='/'>Página Inicial</Link></S.LiFooter>
+              <S.LiFooter><Link to=''>Moda Masculina</Link></S.LiFooter>
+              <S.LiFooter><Link to=''>Moda Feminina</Link></S.LiFooter>
+              <S.LiFooter><Link to=''>Manual de Moda</Link></S.LiFooter>
+            </S.UlFooter>
+          </S.Box>
+          <S.Box>
+            <TextH2 size='2rem'>Siga-nos nas redes sociais</TextH2>
+            <S.BoxRedes>
+              <S.LinksA href='#'><S.ImgRedes src={'../assets/img/icons/facebook.svg'} alt="Facebook"/></S.LinksA>
+              <S.LinksA href='#'><S.ImgRedes src={'../assets/img/icons/twitter.svg'} alt="Twitter"/></S.LinksA>
+              <S.LinksA href='#'><S.ImgRedes src={'../assets/img/icons/instagram.svg'} alt="Instagram"/></S.LinksA>
+              <S.LinksA href='#'><S.ImgRedes src={'../assets/img/icons/youtube.svg'} alt="Youtube"/></S.LinksA>
+            </S.BoxRedes>
+          </S.Box>
+          <S.Box>
+            <TextH2 size='2rem'>Entre em contato</TextH2>
+            <S.UlFooter>
+              <S.LiFooter>
+                <S.LinksA href="mailto:reviva@rchlo.com.br">
+                  reviva@rchlo.com.br
+                </S.LinksA>
+              </S.LiFooter>
+              <S.LiFooter>
+                <S.LinksA href="">
+                  WhasApp 
+                  <S.ImgContact src={'../assets/img/icons/whatsapp.svg'} alt="WhatsApp da loja"/>
+                </S.LinksA>
+              </S.LiFooter>
+              <S.LiFooter>
+                <S.LinksA href="tel:+551121233321">
+                  11 2123-3321 
+                  <S.ImgContact src={'../assets/img/icons/tel.svg'} alt="Numero da Loja"/>
+                </S.LinksA>
+              </S.LiFooter>
+            </S.UlFooter>
+          </S.Box>
+          <S.Box>
+            <TextH2 size='2rem'>Assine nossa newsletter</TextH2>
+            <Newsletter />
+          </S.Box>
+        </S.BoxFooter>
+      </S.Footer>
     </>
   )
 }

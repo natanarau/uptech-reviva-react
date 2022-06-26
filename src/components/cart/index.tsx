@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { updateQuantityProductCart } from './state'
-import styles from './styles.module.scss'
+import * as S from './styles'
+import { SizeProduct } from 'components/Sizes'
+import { TextH3, TextP } from 'components/Text'
 
 export interface CartTypeAdd {
   id: number;
@@ -32,55 +34,34 @@ export default function CartProduct(props:CartTypeAdd) {
 
   return (
     <>
-      <div className={styles.box_cart__product}>
-        <img className={styles.box_cart__img} src={props.urlImg} alt={props.altImg}/>
+      <S.boxCart>
+        <S.ImgProduct src={props.urlImg} alt={props.altImg}/>
 
-        <div>
-          <h3>Produto</h3>
-          <span className={styles.box_cart__desc}>{props.nome}</span>
-        </div>
+        <S.Box>
+          <TextH3 size='1.17rem'>Produto</TextH3>
+          <TextP size='1.5rem'>{props.nome}</TextP>
+        </S.Box>
 
-        <div className={styles.box_cart__size}>
-          <h3>Tamanho escolhido</h3>
-          <div className={styles.details__sizes}>
-            <div className={styles.details__radios}>
-              <label className={styles.details__label}>
-                <input className={styles.details__input} type="radio" name="size" value="P"/>
-                <span className={styles.details__span}>P</span>
-              </label>
-            </div>
-            <div className={styles.details__radios}>
-              <label className={styles.details__label}>
-                <input className={styles.details__input} type="radio" name="size" value="M"/>
-                <span className={styles.details__span}>M</span>
-              </label>
-            </div>
-            <div className={styles.details__radios}>
-              <label className={styles.details__label}>
-                <input className={styles.details__input} type="radio" name="size" value="G"/>
-                <span className={styles.details__span}>G</span>
-              </label>
-            </div>
-          </div>
-        </div>
+        <S.Box>
+          <TextH3 size='1.17rem'>Tamanho escolhido</TextH3>
+          <SizeProduct />
+        </S.Box>
 
-        <div className={styles.box_cart__value}>
-          <h3 className={styles.box_cart__title}>Valor</h3>
-          <span className={styles.box_cart__desc}>R$ {props.preco.toFixed(2).replace('.', ',')}</span>
-        </div>
+        <S.Box>
+          <TextH3 size='1.17rem'>Valor</TextH3>
+          <TextP size='1.5rem'>{`R$ ${props.preco.toFixed(2).replace('.', ',')}`}</TextP>
+        </S.Box>
 
-        <div className={styles.box_cart__qt}>
-          <h3 className={styles.box_cart__title}>Quantidade</h3>
+        <S.Box>
+          <TextH3 size='1.17rem'>Quantidade</TextH3>
+          <S.InputQuantity id={`${props.id}`} onChange={changeCart} value={value} type="number" name={String(props.id)} min="1" max={props.quantidade_disponivel}/>
+        </S.Box>
 
-          <input className={styles.box_cart__input} id={`${props.id}`} onChange={changeCart} value={value} type="number" name={String(props.id)} min="1" max={props.quantidade_disponivel}/>
-
-        </div>
-
-        <div className={styles.box_cart__sub_total}>
-          <h3 className={styles.box_cart__title}>Subtotal</h3>
-          <span className={styles.box_cart__desc}>R$ {subTotal.toFixed(2).replace('.', ',')}</span>
-        </div>
-      </div>
+        <S.Box>
+          <TextH3 size='1.17rem'>Subtotal</TextH3>
+          <TextP size='1.5rem'>{`R$ ${subTotal.toFixed(2).replace('.', ',')}`}</TextP>
+        </S.Box>
+      </S.boxCart>
     </>
   )
 }

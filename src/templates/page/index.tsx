@@ -1,8 +1,8 @@
-import Header from 'components/header'
-import Footer from 'components/footer'
-import styles from './styles.module.scss'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import * as S from './styles'
 import React from 'react'
-import Searh from 'components/search'
+import Search from 'components/Search'
 
 interface pageType {
   children: React.ReactNode;
@@ -12,10 +12,10 @@ export default function PageTemplate(props: pageType) {
   return (
     <>
     <Header />
-      <main className={styles.container}>
-        <Searh />
+      <S.Container>
+        <Search />
         {props.children}
-      </main>
+      </S.Container>
     <Footer />
     </>
   )

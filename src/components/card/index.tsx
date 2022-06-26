@@ -1,18 +1,17 @@
-import styles from './styles.module.scss'
+import * as S from './styles'
+import {TextP} from 'components/Text'
+import Logo from 'components/Logo'
 
 export default function Card() {
   return (
     <>
-      <div className={styles.card}>
-        <div className={styles.description_card}>
-          <p className={styles.description_card__desc}>Fique por dentro de tudo que há de novidade no mundo da moda!</p>
-          <p className={styles.description_card__manual}>Baixe já nosso manual de moda!</p>
-        </div>
-        <div className={styles.card_title}>
-          <h1 className={styles.title_manual}>Reviva Fashion</h1>
-          <span className={styles.card_title__span}>by RCHLO</span>
-        </div>
-      </div>
+      <S.BoxCard>
+        <S.DescriptionCard>
+          <TextP size='2rem'>Fique por dentro de tudo que há de novidade no mundo da moda!</TextP>
+          <TextP size='2.4rem' letterSpacing='0.86rem'>Baixe já nosso manual de moda!</TextP>
+        </S.DescriptionCard>
+        <Logo justifySelf='end'/>
+      </S.BoxCard>
     </>
   )
 }

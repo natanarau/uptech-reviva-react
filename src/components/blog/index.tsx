@@ -1,23 +1,23 @@
-import styles from './styles.module.scss'
+import * as S from './styles'
+import { TextH2 } from 'components/Text'
 
 export default function Blog() {
   return (
     <>
-      <h2 className={styles.category}>Na dúvida sobre combinar suas roupas e ficar incrível?<br/>Confira nossas dicas em nosso blog</h2>
+      <TextH2 size='2rem' margin='2rem 0'>Na dúvida sobre combinar suas roupas e ficar incrível? Confira nossas dicas em nosso blog</TextH2>
 
-      <div className={styles.blog}>
-        <article className={styles.blog_master}>
-          <img className={styles.blog_master__img} src={process.env.PUBLIC_URL + 'assets/img/blog/blog1.png'} alt="Imgem do Look"/>
-          <p className={styles.blog__p}>FAÇA UM NOZINHO.</p>
-        </article>
-        <article className={styles.blog_min}>
-          <img className={styles.blog__img} src={process.env.PUBLIC_URL + 'assets/img/blog/blog2.png'} alt="Imgem do Look"/>
-          <p className={styles.blog__p}>MISTURE ESTAMPAS, CRIE UM EQUILÍBRIO.</p>
-
-          <img className={styles.blog__img} src={process.env.PUBLIC_URL + 'assets/img/blog/blog3.png'} alt="Imgem do Look"/>
-          <p className={styles.blog__p}>COLOQUE A BLUSA/CAMISETA/CAMISA POR DENTRO OU MEIO PRESA.</p>
-        </article>
-      </div>
+      <S.BoxBlog>
+        <S.BoxBlobgLg>
+          <S.ImgBlogLg src={process.env.PUBLIC_URL + 'assets/img/blog/blog1.png'} alt="Imgem do Look"/>
+          <S.TitleBlog>FAÇA UM NOZINHO.</S.TitleBlog>
+        </S.BoxBlobgLg>
+        <S.BloxImgMin>
+          <S.ImgBlogMin src={process.env.PUBLIC_URL + 'assets/img/blog/blog2.png'} alt="Imgem do Look"/>
+          <S.TitleBlog>MISTURE ESTAMPAS, CRIE UM EQUILÍBRIO.</S.TitleBlog>
+          <S.ImgBlogMin src={process.env.PUBLIC_URL + 'assets/img/blog/blog3.png'} alt="Imgem do Look"/>
+          <S.TitleBlog>COLOQUE A BLUSA/CAMISETA/CAMISA POR DENTRO OU MEIO PRESA.</S.TitleBlog>
+        </S.BloxImgMin>
+      </S.BoxBlog>
     </>
   )
 }
