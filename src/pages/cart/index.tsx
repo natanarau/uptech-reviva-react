@@ -5,12 +5,12 @@ import { TextH2 } from 'components/Text'
 import { useContextDataCart } from 'hooks/useContextCart'
 
 export const Cart = () => {
-  const {dataCartState} = useContextDataCart()
+  const {dataCartValue} = useContextDataCart()
   return (
     <>
       <PageTemplate>
         <TextH2 size='2rem' margin='2rem 0'>Minha Sacola</TextH2>
-          {dataCartState.map(items => 
+          {dataCartValue.map(items => 
             <CartProduct 
               key={items.id} 
               nome={items.nome} 

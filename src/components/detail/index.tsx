@@ -1,9 +1,8 @@
 import Card from 'components/Card'
 import { ButtonSetCart } from 'components/Button'
 import { SizeProduct } from 'components/Sizes'
-import { stateProducts } from 'pages/home/state'
+import { useContextDataProduct } from 'hooks/useContextProduct'
 import Products from 'components/Products'
-import { useRecoilValue } from 'recoil'
 import * as S from './styles'
 
 interface ProductImage {
@@ -37,7 +36,7 @@ interface DataProduct {
 }
 
 export default function Detail(props: DataProduct) {
-  const allProduct = useRecoilValue<ProductTypes[]>(stateProducts)
+  const { dataProductValue } = useContextDataProduct()
   return (
     <>
       <S.BoxDetails>
@@ -66,7 +65,7 @@ export default function Detail(props: DataProduct) {
       
       <S.Title>Quem comprou esse produto, também levou esses para casa!</S.Title>
       <S.BoxProduct>
-        {allProduct && allProduct.map((product) => 
+        {dataProductValue && dataProductValue.map((product) => 
           product.categoria == 2 && 
           <Products key={product.id} idProduct={product.id} nameProduct={product.nome} urlImg={product.imagens[0].url} altImg={product.imagens[0].descricao} valueProduct={product.preco.toFixed(2).replace('.', ',')} quantityProduct={product.quantidade_disponivel} />
         )}

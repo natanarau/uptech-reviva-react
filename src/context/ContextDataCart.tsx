@@ -2,38 +2,25 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { CartType, dataCart } from "../data/dataCart";
 
 interface ContextDataCartProviderProps {
-  dataCartState: CartType[];
-  setDataCartState: React.Dispatch<React.SetStateAction<CartType[]>>;
+  dataCartValue: CartType[];
+  setDataCartValue: React.Dispatch<React.SetStateAction<CartType[]>>;
 }
 
-export const ContextDataCart = createContext(
-  {} as ContextDataCartProviderProps
-);
+interface ChildrenProps {
+  children: ReactNode
+}
 
-export const ContextDataCartProvider = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
-  const [dataCartState, setDataCartState] = useState(dataCart);
+export const ContextDataCart = createContext({} as ContextDataCartProviderProps);
+
+export const ContextDataCartProvider = ({children}:ChildrenProps) => {
+  const [dataCartValue, setDataCartValue] = useState(dataCart);
   
-  const productLocal = localStorage.getItem('cart')
-
-  if(!productLocal) {
-    localStorage.setItem('cart', JSON.stringify(dataCartState))
-  }
-
   useEffect(() => {
-    setDataCartState(dataCart);
+    setDataCartValue(dataCart);
   }, []);
 
   return (
-    <ContextDataCart.Provider
-      value={{
-        dataCartState,
-        setDataCartState,
-      }}
-    >
+    <ContextDataCart.Provider value={{dataCartValue, setDataCartValue}}>
       {children}
     </ContextDataCart.Provider>
   );

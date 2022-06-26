@@ -15,18 +15,18 @@ export interface CartTypeAdd {
 }
 
 export default function CartProduct(props:CartTypeAdd) {
-  const { dataCartState, setDataCartState } = useContextDataCart()
+  const { dataCartValue, setDataCartValue } = useContextDataCart()
   const [value, setValue] = useState<any>(1)
   const subTotal = value * props.preco
   const changeCart = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const newArray = dataCartState.map(item => {
+    const newArray = dataCartValue.map(item => {
       if(String(item.id) === e.target.id){
        return {...item, carrinho: Number(e.target.value)}
       }
      return item
     })
     setValue(e.target.value)
-    setDataCartState(newArray)
+    setDataCartValue(newArray)
   }
 
   return (
