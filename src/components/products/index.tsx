@@ -1,13 +1,25 @@
 import * as S from './styles';
 import { Link } from 'react-router-dom';
 import { useContextDataProduct } from 'hooks/useContextProduct';
+import { useContextDataCart } from 'hooks/useContextCart';
 import { SizeProduct } from 'components/Sizes';
 import { ButtonSetCart } from 'components/Button';
 import { TextH3, TextP } from 'components/Text';
+import React from 'react';
 
 export default function Products(props: {category:number})  {
   const { dataProductValue } = useContextDataProduct();
+  const { dataCartValue, setDataCartValue } = useContextDataCart();
   const filterProduct = dataProductValue.filter(item => item.categoria === props.category);
+
+  const addCart = (id: number) => {
+    const getProductClicked = dataProductValue.find(e => e.id === id)
+    if(getProductClicked) {
+      const newCart = {...getProductClicked, carrinho: getProductClicked.carrinho++}
+      console.log(newCart)
+    }
+  }
+  
   return (
     <>
       {filterProduct && filterProduct.map(item => 
@@ -21,7 +33,7 @@ export default function Products(props: {category:number})  {
               <TextH3 size='1.8rem' margin='0.5rem 0' ht='10rem' textTransform='uppercase' transition='0.3s'>{item.nome}</TextH3>
             </Link>
             <TextP color='#D0403A' size='1.8rem' margin='0.5rem 0' fontWeight='600'>{`R$ ${item.preco}`}</TextP>
-            <ButtonSetCart width={`100%`} />
+            <ButtonSetCart onClick={() => addCart(item.id)} width={`100%`} />
           </S.Box>
         </S.BoxProducts>
       )}

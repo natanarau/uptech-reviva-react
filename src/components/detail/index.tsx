@@ -4,62 +4,37 @@ import { SizeProduct } from 'components/Sizes'
 import { useContextDataProduct } from 'hooks/useContextProduct'
 import Products from 'components/Products'
 import * as S from './styles'
+import { useParams } from 'react-router-dom'
 
-interface ProductImage {
-  url: string;
-  descricao: string;
-}
-export interface ProductTypes {
-  id: any;
-  nome: string;
-  url: string;
-  preco: number;
-  categoria: number;
-  descricao: string;
-  tamanhos_disponiveis: any;
-  quantidade_disponivel: number;
-  carrinho: number;
-  total: number;
-  imagens: ProductImage[];
-}
-
-interface DataProduct { 
-  id: any
-  nameProduct: string
-  urlImg: string
-  urlImg2: string;
-  urlImg3: string;
-  urlImg4: string;
-  altImg: string,
-  valueProduct: number
-  descriptionProduct: string
-}
-export default function Detail(props: DataProduct) {
+export default function Detail() {
   const { dataProductValue } = useContextDataProduct()
-  const categoryProduct1 = dataProductValue.filter(item => item.categoria === 1)
+  const { id } = useParams()
+  const product = dataProductValue.find(item => item.id === Number(id))
   return (
     <>
-      <S.BoxDetails>
-        <S.BoxImgLg>
-          <S.ImgLg src={props.urlImg} alt={props.altImg}/>
-        </S.BoxImgLg>
-        <S.DataProducts>
-          <S.BoxText>
-          <S.Title>{props.nameProduct}</S.Title>
-          <S.Description>{props.descriptionProduct}</S.Description>
-          </S.BoxText>
-          <S.BoxImgMin>
-            <S.ImgMin src={props.urlImg} alt={props.altImg} />
-            <S.ImgMin src={props.urlImg2} alt={props.altImg} />
-            <S.ImgMin src={props.urlImg3} alt={props.altImg} />
-            <S.ImgMin src={props.urlImg4} alt={props.altImg} />
-          </S.BoxImgMin>
-          <S.GroupButton>
-            <SizeProduct />
-            <ButtonSetCart width={`30rem`} />
-          </S.GroupButton>
-        </S.DataProducts>
-      </S.BoxDetails>
+      {product &&
+        <S.BoxDetails>
+          <S.BoxImgLg>
+            <S.ImgLg src={product.imagens[0].url} alt={product.imagens[0].descricao}/>
+          </S.BoxImgLg>
+          <S.DataProducts>
+            <S.BoxText>
+            <S.Title>{product.nome}</S.Title>
+            <S.Description>{product.descricao}</S.Description>
+            </S.BoxText>
+            <S.BoxImgMin>
+              <S.ImgMin src={product.imagens[0].url} alt={product.imagens[0].descricao} />
+              <S.ImgMin src={product.imagens[0].url2} alt={product.imagens[0].descricao} />
+              <S.ImgMin src={product.imagens[0].url3} alt={product.imagens[0].descricao} />
+              <S.ImgMin src={product.imagens[0].url4} alt={product.imagens[0].descricao} />
+            </S.BoxImgMin>
+            <S.GroupButton>
+              <SizeProduct />
+              <ButtonSetCart width={`30rem`} />
+            </S.GroupButton>
+          </S.DataProducts>
+        </S.BoxDetails>
+      }
 
       <Card />
       
