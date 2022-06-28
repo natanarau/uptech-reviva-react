@@ -1,15 +1,12 @@
 import * as S from './styles';
 import { Link } from 'react-router-dom';
 import { useContextDataProduct } from 'hooks/useContextProduct';
-import { useContextDataCart } from 'hooks/useContextCart';
 import { SizeProduct } from 'components/Sizes';
 import { ButtonSetCart } from 'components/Button';
 import { TextH3, TextP } from 'components/Text';
-import React from 'react';
 
 export default function Products(props: {category:number})  {
   const { dataProductValue } = useContextDataProduct();
-  const { dataCartValue, setDataCartValue } = useContextDataCart();
   const filterProduct = dataProductValue.filter(item => item.categoria === props.category);
 
   const addCart = (id: number) => {
