@@ -23,7 +23,11 @@
     "baseUrl": "./src",
     "paths": {
       "components": ["components/*"],
-      "pages": ["pages/*"]
+      "pages": ["pages/*"],
+      "context": ["context/*"],
+      "hooks": ["hooks/*"],
+      "routes": ["routes/*"],
+      "templates": ["templates/*"]
     }
   },
   "include": [
