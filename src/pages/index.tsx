@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import { TextH2 } from 'components/Text'
 import Products from 'components/Products'
-import * as S from 'components/Products/styles'
 import PageTemplate from 'templates/page'
 import Card from 'components/Card'
 import Blog from 'components/Blog'

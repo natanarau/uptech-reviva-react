@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from './styles';
 import Link from 'next/link';
-import { useContextDataProduct } from 'hooks/useContextProduct';
 import { SizeProduct } from 'components/Sizes';
 import { ButtonSetCart } from 'components/Button';
 import { TextH3, TextP } from 'components/Text';
@@ -18,17 +17,16 @@ export default function Products(props: {category:number})  {
   const filterProduct = data && data.filter(item => item.categoria === props.category);
 
   const addCart = (id: number) => {
-    const getProductClicked = data && data.find(e => e.id === id)
-    const getProductState = cart && cart.filter(e => e.id === id)
-    const productExists = getProductClicked && getProductState.includes(getProductClicked, 0)
-    if(getProductClicked && !productExists) {
-      const cartInicial:ProductTypes = {...getProductClicked, carrinho: 1 + getProductClicked.carrinho++}
-      const newCart = [...cart, cartInicial]
-      setCart(newCart)  
+    const getProductClicked = data && data.find(e => e.id === id);
+    const getProductState = cart && cart.filter(e => e.id !== getProductClicked?.id)
+    if(getProductClicked && getProductState) {
+      const newCart = {...getProductClicked, carrinho: 1 + getProductClicked.carrinho++}
+      setCart([newCart, ...getProductState])
+      
     }
-    console.log(cart)
   }
-  
+  console.log(cart)
+
   React.useEffect(() => {
     request(`http://localhost:3000/api/dataProduct`)
   }, [])
