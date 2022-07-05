@@ -4,7 +4,6 @@ import useFetch from 'hooks/useFetch'
 import Card from 'components/Card'
 import { ButtonSetCart } from 'components/Button'
 import { SizeProduct } from 'components/Sizes'
-import { useContextDataProduct } from 'hooks/useContextProduct'
 import Products from 'components/Products'
 import * as S from './styles'
 import Loading from 'components/Loading'
@@ -13,7 +12,6 @@ import Alert from 'components/Alert'
 export default function Detail() {
   const { id } = useRouter().query;
   const {data, error, request, loading} = useFetch();
-  const { dataProductValue } = useContextDataProduct()
   const product = data && data.find(item => item.id === Number(id))
 
   React.useEffect(() => {
