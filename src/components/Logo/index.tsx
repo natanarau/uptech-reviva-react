@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-interface AttributesLogo {
+interface logoProps {
   color?: string;
   size?: string;
   fontFamily?: string; 
@@ -8,7 +8,7 @@ interface AttributesLogo {
   margin?: string;
 }
 
-export default function Logo(props: AttributesLogo) {
+export default function Logo(props: logoProps) {
   return (
     <>
       <S.BoxLogo justifySelf={props.justifySelf} margin={props.margin}>

@@ -1,10 +1,10 @@
 import PageTemplate from 'templates/page'
 import Detail from 'components/Detail'
 
-export const DetailsProducts = () => {
+export default function DetailsProducts() {
   return (
     <PageTemplate>
-        <Detail />
+       <Detail />
     </PageTemplate>
   )
 }

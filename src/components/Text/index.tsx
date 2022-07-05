@@ -11,6 +11,7 @@ interface TextType {
   size: string;
   letterSpacing?: string
   color?: string;
+  cr?: string;
 }
 
 export const TextH2 = (props:TextType) => {

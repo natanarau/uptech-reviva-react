@@ -8,13 +8,13 @@ export default function Blog() {
 
       <S.BoxBlog>
         <S.BoxBlobgLg>
-          <S.ImgBlogLg src={process.env.PUBLIC_URL + 'assets/img/blog/blog1.png'} alt="Imgem do Look"/>
+          <S.ImgBlogLg src={'../img/blog/blog1.png'} alt="Imgem do Look"/>
           <S.TitleBlog>FAÇA UM NOZINHO.</S.TitleBlog>
         </S.BoxBlobgLg>
         <S.BloxImgMin>
-          <S.ImgBlogMin src={process.env.PUBLIC_URL + 'assets/img/blog/blog2.png'} alt="Imgem do Look"/>
+          <S.ImgBlogMin src={'../img/blog/blog2.png'} alt="Imgem do Look"/>
           <S.TitleBlog>MISTURE ESTAMPAS, CRIE UM EQUILÍBRIO.</S.TitleBlog>
-          <S.ImgBlogMin src={process.env.PUBLIC_URL + 'assets/img/blog/blog3.png'} alt="Imgem do Look"/>
+          <S.ImgBlogMin src={'../img/blog/blog3.png'} alt="Imgem do Look"/>
           <S.TitleBlog>COLOQUE A BLUSA/CAMISETA/CAMISA POR DENTRO OU MEIO PRESA.</S.TitleBlog>
         </S.BloxImgMin>
       </S.BoxBlog>

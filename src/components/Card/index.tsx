@@ -1,5 +1,5 @@
 import * as S from './styles'
-import {TextP} from 'components/Text'
+import { TextP } from 'components/Text'
 import Logo from 'components/Logo'
 
 export default function Card() {

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-interface TextAttributes {
+interface TextProps {
   width?: string;
   ht?: string;
   fontWeight?: string;
@@ -8,10 +8,11 @@ interface TextAttributes {
   textTransform?: string;
   transition?: string;
   size: string;
-  letterSpacing?: string
+  letterSpacing?: string;
+  cr?: string
 }
 
-export const TextH2 = styled.h2<TextAttributes> `
+export const TextH2 = styled.h2<TextProps> `
   ${({size, margin, textTransform, letterSpacing}) => css`
     font-size: ${size};
     margin: ${margin};
@@ -19,19 +20,20 @@ export const TextH2 = styled.h2<TextAttributes> `
     letter-spacing: ${letterSpacing};
   `}
 `
-export const TextH3 = styled.h3<TextAttributes> `
-  ${({size, margin, ht, textTransform, transition}) => css`
+export const TextH3 = styled.h3<TextProps> `
+  ${({size, margin, ht, textTransform, transition, cr}) => css`
     font-size: ${size};
     margin: ${margin};
     height: ${ht};
     text-transform: ${textTransform};
     transition: ${transition};
+    cursor: ${cr};
   `}
   &:hover {
     opacity: 70%;
   }
 `
-export const TextP = styled.p<TextAttributes> `
+export const TextP = styled.p<TextProps> `
   ${({size, letterSpacing, margin, textTransform, transition, fontWeight, color}) => css`
     font-size: ${size};
     letter-spacing: ${letterSpacing};

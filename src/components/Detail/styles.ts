@@ -9,18 +9,6 @@ export const BoxDetails = styled.div `
     grid-template-columns: 1fr;
   }
 `
-export const BoxProduct = styled.div `
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 5rem;
-  @media only screen and (max-width: 910px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media only screen and (max-width: 630px) {
-    grid-template-columns: 1fr;
-  }
-`
 export const Title = styled.h2 `
   margin: 1.5rem 0;
   letter-spacing: 1.7px;
