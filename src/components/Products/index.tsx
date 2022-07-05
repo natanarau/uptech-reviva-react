@@ -5,30 +5,45 @@ import { SizeProduct } from 'components/Sizes';
 import { ButtonSetCart } from 'components/Button';
 import { TextH3, TextP } from 'components/Text';
 import useFetch from 'hooks/useFetch'
+import useAddCart from 'hooks/useAddCart';
 import Alert from 'components/Alert';
 import Loading from 'components/Loading';
 import type { ProductTypes } from 'types';
+import { useUpdateEffect } from 'react-use';
 
 export default function Products(props: {category:number})  {
   const { data, request, error, loading } = useFetch();
-  const [cart , setCart] = React.useState<ProductTypes[]>([]);
+  const { requestCart } = useAddCart();
+  const [cart, setCart] = React.useState<ProductTypes[]>([]);
+
   const Imagem = React.forwardRef((props:any, ref) => <S.ImgProduct {...props} />)
   const Text = React.forwardRef((props:any, ref) => <TextH3 {...props} />)
+
   const filterProduct = data && data.filter(item => item.categoria === props.category);
 
   const addCart = (id: number) => {
     const getProductClicked = data && data.find(e => e.id === id);
-    const getProductState = cart && cart.filter(e => e.id !== getProductClicked?.id)
+    const getProductState = cart && cart.filter(e => e.id !== id );
+
     if(getProductClicked && getProductState) {
-      const newCart = {...getProductClicked, carrinho: 1 + getProductClicked.carrinho++}
-      setCart([newCart, ...getProductState])
-      
+      const newCart = {...getProductClicked, carrinho: 1 + getProductClicked.carrinho++, quantidade_disponivel: getProductClicked.quantidade_disponivel - getProductClicked.carrinho}
+      setCart([...getProductState, newCart])
     }
   }
-  console.log(cart)
+
+  useUpdateEffect(() => {
+    requestCart(`http://localhost:3000/api/data`, {
+      method: 'POST',
+      body: JSON.stringify(cart),
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
   React.useEffect(() => {
-    request(`http://localhost:3000/api/dataProduct`)
+    request(`http://localhost:3000/api/data`)
   }, [])
 
   return (

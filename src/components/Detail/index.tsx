@@ -17,7 +17,7 @@ export default function Detail() {
   const product = data && data.find(item => item.id === Number(id))
 
   React.useEffect(() => {
-    request(`http://localhost:3000/api/dataProduct`)
+    request(`http://localhost:3000/api/data`)
   }, [])
 
   return (
