@@ -16,14 +16,19 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "baseUrl": "./src",
     "paths": {
       "components": ["components/*"],
-      "pages": ["pages/*"]
+      "pages": ["pages/*"],
+      "context": ["context/*"],
+      "hooks": ["hooks/*"],
+      "routes": ["routes/*"],
+      "templates": ["templates/*"],
+      "data": ["data/*"]
     }
   },
   "include": [

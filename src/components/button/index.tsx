@@ -1,11 +1,11 @@
 import { Button, ImgFront} from './styles'
 
-interface Attributes {
+interface buttonProps {
   width: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
-export const ButtonSetCart = (props: Attributes) => {
+export const ButtonSetCart = (props: buttonProps) => {
   return (
     <>
       <Button onClick={props.onClick} width={props.width}>

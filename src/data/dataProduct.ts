@@ -20,7 +20,7 @@ export interface ProductTypes {
   imagens: ProductImage[];
 }
 
-export const data:ProductTypes[] = [
+export const dataProduct:ProductTypes[] = [
     {
       id: 1,
       nome: 'VESTIDO MIDI PLUS SIZE FEMININO ABERTO UMA MARIA LISO MARROM FILIPA BY RIACHUELO',

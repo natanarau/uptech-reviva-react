@@ -9,7 +9,7 @@ export interface CartType {
   preco: number;
   quantidade_disponivel: number;
   carrinho: number;
-  total: number;
+  subTotal: number;
   imagens: ProductImage[];
 }
 
@@ -20,7 +20,7 @@ export const dataCart:CartType[] = [
     preco: 259.9,
     quantidade_disponivel: 20,
     carrinho: 1,
-    total: 0,
+    subTotal: 259.9,
     imagens: [
       {
         url: 'https://static.riachuelo.com.br/RCHLO/14595150003/portrait/47b6bc1baa2696ab9e414de591d2ccaf96f2d25b.jpg?imwidth=700',
@@ -34,7 +34,7 @@ export const dataCart:CartType[] = [
     preco: 79.9,
     quantidade_disponivel: 15,
     carrinho: 1,
-    total: 0,
+    subTotal: 79.9,
     imagens: [
       {
         url: 'https://static.riachuelo.com.br/RCHLO/14594536001/portrait/f0140498a034437cada79415e8a255ebe52b2f18.jpg?imwidth=700',
@@ -48,7 +48,7 @@ export const dataCart:CartType[] = [
     preco: 99.9,
     quantidade_disponivel: 13,
     carrinho: 1,
-    total: 0,
+    subTotal: 99.9,
     imagens: [
       {
         url: 'https://static.riachuelo.com.br/RCHLO/14380226005/portrait/14ed05dd6b3dd0307140279eb7f538725d368e9a.jpg?imwidth=700',
